@@ -31,7 +31,7 @@ export default function PartOne() {
           <p className="fr">(max. 20 per tx)</p>
         </div>
         <h5>
-          Mint Price: <i>TBD</i>
+          Mint Price: <i>120 FTM</i>
         </h5>
         <button>Coming Soon</button>
       </div>
