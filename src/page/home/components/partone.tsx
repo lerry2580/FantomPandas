@@ -27,7 +27,7 @@ export default function PartOne() {
         <div className="form_bg"></div>
         <div className="input">
           <p>Quantity:</p>
-          <input type="number" min="0" max="20" />
+          <input type="number" min="0" max="20" maxlength="2" />
           <p className="fr">(max. 20 per tx)</p>
         </div>
         <h5>
