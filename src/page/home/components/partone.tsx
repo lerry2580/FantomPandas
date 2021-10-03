@@ -5,7 +5,7 @@ export default function PartOne() {
   return (
     <div className="partone">
       <HeaderWidget />
-      <h1>Welcome to FantomPanda</h1>
+      <h1>Welcome to FantomPandas</h1>
       <h3>
         Width 1017px Height 53px Top 298px Left 452px Blend Pass through
         FantomPanda is a collection of randomly generated NFT characters living
