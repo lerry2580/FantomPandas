@@ -16,7 +16,7 @@ export default function PartFour() {
           <div className="border">
             <h5>"DON'T TOUCH IT !" ---- Tim Allen</h5>
             <p>
-              "One of the first 80 pandas contains a hand-printed rare panda.
+              "One of the first 120 pandas contains a hand-printed rare panda.
               This panda was not intended for sale (you can’t imagine how we
               persuaded Tim Allen to agree to this request, Tim Allen is a
               lunatic!!!), if you got it, congratulations to You, Tim Allen will
@@ -57,7 +57,7 @@ export default function PartFour() {
           </h3>
           <div className="border">
             <p>
-              "Congratulations to the first 400 Pandas owners. With your first
+              "Congratulations to the first 600 Pandas owners. With your first
               mint address, you can claim 80000 $FPD tokens, and $FPD can be
               exchanged for the next generation of NFT." ---- Horace
             </p>
