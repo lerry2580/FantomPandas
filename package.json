@@ -1,9 +1,9 @@
 {
-  "name": "fantomPanda",
+  "name": "FantomPandas",
   "version": "0.1.0",
   "main": "index.ts",
   "private": true,
-  "homepage": "/FantomPanda/",
+  "homepage": "./",
   "description": "An ERC-721/ERC-20 Securitizer",
   "scripts": {
     "start": "node scripts/start.js",
