@@ -45,11 +45,9 @@ export default function PartOne() {
       <HeaderWidget />
       <h1>Welcome to FantomPanda</h1>
       <h3>
-        Width 1017px Height 53px Top 298px Left 452px Blend Pass through
-        FantomPanda is a collection of randomly generated NFT characters living
-        on the Fantom blockchain. 1200 Pandas are created from over 200
-        hand-crafted traits. Each FantomPanda is 1/1 unique and can be
-        customized.
+      FantomPandas is a collection of randomly generated NFT characters living 
+      on the Fantom blockchain. 1200 Pandas are created from over 200
+      hand-crafted traits. Each FantomPanda is 1/1 unique and can be customized.
       </h3>
       <div className="form">
         <h4>Mint a Panda</h4>
@@ -138,7 +136,7 @@ export default function PartOne() {
                     Toast.show(`You can currently purchase ${_allow} FPDS`);
                   }
                 } else {
-                  Toast.show("No permission!");
+                  Toast.show("Sorry, your address is not in the whitelist.");
                   return false;
                 }
               }
