@@ -1,4 +1,4 @@
 export default {
-  nftAddress: "0x304D835e60737b8F952dc1b7F145eB018D026cB8",
+  nftAddress: "0x2c1F5869d7780b20b8be26412e703110eFf9D6A6",
   preLink: "",
 };
