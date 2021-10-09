@@ -43,7 +43,7 @@ export default function PartOne() {
   return (
     <div className="partone">
       <HeaderWidget />
-      <h1>Welcome to FantomPanda</h1>
+      <h1>Welcome to FantomPandas</h1>
       <h3>
       FantomPandas is a collection of randomly generated NFT characters living 
       on the Fantom blockchain. 1200 Pandas are created from over 200
