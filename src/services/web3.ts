@@ -1,4 +1,3 @@
-import Portis from "@portis/web3";
 import Web3 from "web3";
 
 import config from "@/config/index";
@@ -10,7 +9,7 @@ const ERC721_ENUMERABLE_ABI = require("../abi/ERC721Enumerable.json");
 const ERC165_ABI = require("../abi/ERC165.json");
 
 const ERC721_ABI = require("../abi/ERC721.json");
-// const DBR = require("../abi/DBR.json");
+const FPDS = require("../abi/FPDS.json");
 declare global {
   interface Window {
     ethereum: any;
@@ -21,12 +20,6 @@ declare global {
 if (window.ethereum) {
   window.web3 = new Web3(window.ethereum);
   window.ethereum.enable(); // should wait?
-}
-
-if (!window.web3) {
-  const DAPP_ID = "a0fa4f71-2d8e-4a67-baa6-33ab41c3ba26";
-  const portis = new Portis(DAPP_ID, "mainnet");
-  window.web3 = new Web3(portis.provider);
 }
 
 const web3 = new Web3(window.web3.currentProvider);
@@ -208,6 +201,64 @@ async function ERC721_admins({
   const abi = new window.web3.eth.Contract(ERC721_ENUMERABLE_ABI, nftAddress);
   return abi.methods.admins(address).call();
 }
+async function ERC721_price(): Promise<string> {
+  const abi = new window.web3.eth.Contract(FPDS, nftAddress);
+  return abi.methods.price().call();
+}
+async function ERC721_state(): Promise<string> {
+  const abi = new window.web3.eth.Contract(FPDS, nftAddress);
+  return abi.methods.saleState().call();
+}
+async function ERC721_preSaleReserved(account: string): Promise<string> {
+  const abi = new window.web3.eth.Contract(FPDS, nftAddress);
+  return abi.methods.preSaleReserved(account).call();
+}
+async function ERC721_Max(): Promise<string> {
+  const abi = new window.web3.eth.Contract(FPDS, nftAddress);
+  return abi.methods.MAX_PANDAS().call();
+}
+async function ERC721_TotalSupply(): Promise<string> {
+  const abi = new window.web3.eth.Contract(FPDS, nftAddress);
+  return abi.methods.totalSupply().call();
+}
+
+async function ERC721_preSaleMint({
+  numberOfTokens,
+  price,
+  account,
+}: {
+  numberOfTokens: string;
+  account: string;
+  price: string;
+}): Promise<void> {
+  const abi = new window.web3.eth.Contract(FPDS, nftAddress);
+  return new Promise((resolve, reject) => {
+    abi.methods
+      .preSaleMint(numberOfTokens)
+      .send({ from: account, value: +price * +numberOfTokens, gas: 3000000 })
+      .once("confirmation", (confNumber: any, receipt: any) => resolve())
+      .once("error", reject);
+  });
+}
+
+async function ERC721_mint({
+  numberOfTokens,
+  price,
+  account,
+}: {
+  numberOfTokens: string;
+  account: string;
+  price: string;
+}): Promise<void> {
+  const abi = new window.web3.eth.Contract(FPDS, nftAddress);
+  return new Promise((resolve, reject) => {
+    abi.methods
+      .mint(numberOfTokens)
+      .send({ from: account, value: +price * +numberOfTokens, gas: 3000000 })
+      .once("confirmation", (confNumber: any, receipt: any) => resolve())
+      .once("error", reject);
+  });
+}
 
 async function ERC721_tokenOfOwnerByIndex({
   account,
@@ -258,6 +309,45 @@ export async function getERC721Balance({
     account,
   });
   return balance;
+}
+export async function NFTPrice(): Promise<string> {
+  return ERC721_price();
+}
+// 0 待发布  1 预发布  2 已发布
+export async function NFTState(): Promise<string> {
+  return ERC721_state();
+}
+// 是否有权限购买
+export async function NFTAllow(account: string): Promise<string> {
+  return ERC721_preSaleReserved(account);
+}
+export async function NFTMax(): Promise<string> {
+  return ERC721_Max();
+}
+export async function NFTTotalSupply(): Promise<string> {
+  return ERC721_TotalSupply();
+}
+export async function preSaleMint({
+  numberOfTokens,
+  price,
+  account,
+}: {
+  numberOfTokens: string;
+  account: string;
+  price: string;
+}): Promise<void> {
+  return ERC721_preSaleMint({ numberOfTokens, account, price });
+}
+export async function mint({
+  numberOfTokens,
+  price,
+  account,
+}: {
+  numberOfTokens: string;
+  account: string;
+  price: string;
+}): Promise<void> {
+  return ERC721_mint({ numberOfTokens, account, price });
 }
 
 export async function walletOfOwner({

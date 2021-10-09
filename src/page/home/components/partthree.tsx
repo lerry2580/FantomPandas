@@ -16,20 +16,20 @@ export default function PartThree() {
       ],
     },
     {
-      flImg: require("../assets/races_03.png"),
-      frImg01: require("../assets/races_0301.png"),
-      frImg02: require("../assets/races_0302.png"),
-      frImg03: require("../assets/races_0303.png"),
+      flImg: require("../assets/races_02.png"),
+      frImg01: require("../assets/races_0201.png"),
+      frImg02: require("../assets/races_0202.png"),
+      frImg03: require("../assets/races_0203.png"),
       title: "Earthbind spirit",
       details: [
         "Spirit devourers are a bunch of bad boys, villains in the chaos world.They have no intention to ascend to the eternal paradise.After breaking away from the identity of the earthbound spirit, they also lose the protection and bondage of the earth center force in the chaos world.They are intoxicated, and their unconscious behavior cannot judge they are good or evil.The smell of blood from Spiritual Rocks tempt their inner desires all the time, making them purely devourers.",
       ],
     },
     {
-      flImg: require("../assets/races_02.png"),
-      frImg01: require("../assets/races_0201.png"),
-      frImg02: require("../assets/races_0202.png"),
-      frImg03: require("../assets/races_0203.png"),
+      flImg: require("../assets/races_03.png"),
+      frImg01: require("../assets/races_0301.png"),
+      frImg02: require("../assets/races_0302.png"),
+      frImg03: require("../assets/races_0303.png"),
       title: "Earthbind spirit",
       details: [
         "The Guardian of Order does not believe in the existence of eternal heaven, nor does it intend to turn this plane into an abyss of desire. They prefer to believe that the plane of the chaos world is the only world, and requires the creatures in this world to maintain the status quo and historical traditions, and oppose Those radical changes in any form advocate the establishment of a completely ordered world.",
@@ -58,6 +58,7 @@ export default function PartThree() {
             "Lords",
           ].map((v: string, index: number) => (
             <li
+              key={index}
               className={index === liIndex ? "onLi" : ""}
               onClick={() => {
                 setLiIndex(index);
@@ -74,7 +75,7 @@ export default function PartThree() {
           <div className="fr">
             <h4>{liList[liIndex].title}</h4>
             {liList[liIndex].details.map((v) => (
-              <p>{v}</p>
+              <p key={v}>{v}</p>
             ))}
             <ul>
               <li>
