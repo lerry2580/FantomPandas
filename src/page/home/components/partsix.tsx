@@ -7,7 +7,7 @@ export default function PartSix() {
       <ul>
         <li>
           <img src={require("../assets/six01.png")} alt="Tim Alle" />
-          <h3>Tim Alle</h3>
+          <h3>Tim Allen</h3>
           <p>Panda Artist</p>
         </li>
         <li>
