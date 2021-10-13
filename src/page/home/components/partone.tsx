@@ -63,7 +63,7 @@ export default function PartOne() {
               {+ERC721State === 1
                 ? "PreSale"
                 : +ERC721State === 2
-                ? "Sale"
+                ? "BAMBOO PreSale"
                 : +ERC721State === 0
                 ? "Coming Soon"
                 : ""}
