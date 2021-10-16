@@ -81,7 +81,7 @@ export default function PartOne() {
               }
             }}
           />
-          <p className="fr">(max. 10 per tx)</p>
+          <p className="fr">(max. 9 per tx)</p>
         </div>
         <h5>
           Mint Price:{" "}
