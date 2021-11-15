@@ -166,6 +166,14 @@ export default function PartOne() {
         >
           Discord
         </a>
+        <a
+          href="https://medium.com/@Fantompandas"
+          title="https://medium.com/@Fantompandas"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Medium
+        </a>
       </div>
       <div className="next">
         <a href="#Story">
